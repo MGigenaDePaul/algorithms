@@ -3,30 +3,23 @@
  * @return {string}
  */
 
-var minLengthStrs = function(strs) {
-    var min = 100
-    for (let i = 0; i < strs.length; i++) {
-        if (strs[i].length < min) {
-            min = strs[i].length
-        }
-    }
-
-    return min
-}
 
 var longestCommonPrefix = function(strs) {
-    // compare the first letter of each string, if it's not the same, there's no common prefix
-    // seguir este proceso con las siguientes letras hasta que no coincidan y devolver el longestCommonPrefix
+    let checkMin = Math.min(...strs.map(str => str.length))
 
-    var commonPrefix = ''
-    for (let j = 0; j < minLengthStrs(strs); j++) {
-        for (let i = 0; i < strs.length; i++) {
-            if (strs[i][j] !== strs[0][j]) return commonPrefix;
+    let prefix = ""
+
+    for (let i = 0; i < checkMin; i++) {
+        const current = strs[0][i]
+        for (let j = 0; j < strs.length; j++) {
+            if (strs[j][i] !== current) {
+                return prefix;
+            }
         }
-        commonPrefix = commonPrefix + strs[0][j]
+        prefix += current
     }
 
-    return commonPrefix;
+    return prefix
 };
 
 
