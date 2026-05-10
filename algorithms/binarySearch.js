@@ -1,6 +1,6 @@
 // BINARY SEARCH 
 // prerequisite -> must be sorted
-
+// complejidad O(log n)
 /*
 Step 1. Let the element we are searching for, in the given array/list is X.
 Step 2. Compare X with the middle element in the array.
