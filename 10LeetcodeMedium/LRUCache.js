@@ -21,9 +21,9 @@ var LRUCache = function(capacity) {
     this.right = new Node(0, 0);
     this.left.next = this.right;
     this.right.prev = this.left;
-};
+};  
 
-
+   
 LRUCache.prototype.remove = function(node) {
     const prev = node.prev;
     const nxt = node.next;
@@ -37,8 +37,8 @@ LRUCache.prototype.insert = function(node) {
     node.prev = prev;
     node.next = nxt;
     prev.next = node;
-    nxt.prev = node;
-};
+    nxt.prev = node; 
+};                          
 
 /** 
  * @param {number} key
@@ -67,13 +67,13 @@ LRUCache.prototype.put = function(key, value) {
     this.size++;                  // ✅ increment on every new insert
 
     if (this.size > this.cap) {
-        const lru = this.left.next;
+        const lru = this.left.next; // this left primero es un node vacio, por lo tanto this.left.next es el lru
         this.remove(lru);
         delete this.cache[lru.key];
         this.size--;              // ✅ decrement on eviction
     }
 };
-
+  
 /** 
  * Your LRUCache object will be instantiated and called as such:
  * var obj = new LRUCache(capacity)

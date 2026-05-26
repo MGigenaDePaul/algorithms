@@ -33,7 +33,7 @@ var snakesAndLadders = function(board) {
             
             if (!visit.has(nextSquare)) {
                 visit.add(nextSquare);
-                q.push([nextSquare, moves + 1]);
+                q.push([nextSquare, moves + 1]); // because we have to store the nextSquare and how many moves it took to be there
             }
         }
     }
